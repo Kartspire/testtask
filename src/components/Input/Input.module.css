@@ -62,3 +62,10 @@
   background-color: #b4b198;
   border: 3px solid #30352e;
 }
+
+@media (max-width: 600px) {
+  .number {
+    padding: 5px;
+    font-size: 15px;
+  }
+}
