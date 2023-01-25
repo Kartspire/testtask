@@ -7,10 +7,16 @@ interface IInputProps {
   value: number | string;
   onChange(value: number): void;
   onBlur?(value: number): void;
-  onMouseUp?(): void;
+  onFocus?(): void;
 }
 
-export const Input: FC<IInputProps> = ({ type, value, onChange, onBlur }) => {
+export const Input: FC<IInputProps> = ({
+  type,
+  value,
+  onChange,
+  onBlur,
+  onFocus,
+}) => {
   return (
     <input
       type={type}
@@ -20,6 +26,7 @@ export const Input: FC<IInputProps> = ({ type, value, onChange, onBlur }) => {
       max={max}
       onChange={(e) => onChange(Number(e.target.value))}
       onBlur={(e) => onBlur && onBlur(Number(e.target.value))}
+      onFocus={() => onFocus && onFocus()}
     />
   );
 };

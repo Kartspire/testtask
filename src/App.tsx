@@ -2,10 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { sendRange } from "./async/submitForm";
 import { Input } from "./components/Input/Input";
 import { max, min, minRange } from "./global/range";
+import { IRange } from "./models/IData";
 import styles from "./styles.module.css";
 
 export function App() {
-  const [numberValue, setNumberValue] = useState({
+  const [numberValue, setNumberValue] = useState<IRange>({
     low: minRange,
     high: max - minRange,
   });
@@ -19,7 +20,7 @@ export function App() {
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> = setTimeout(() => {
       sendRange(rangeValue)!;
-    }, 300);
+    }, 500);
     const lowPercent = (rangeValue.low / max) * 100;
     const highPercent = (rangeValue.high / max) * 100;
     track.current!.style.background = `linear-gradient(to right, #dadae5 ${lowPercent}% , #30352e ${lowPercent}% , #30352e ${highPercent}%, #dadae5 ${highPercent}%)`;
@@ -74,12 +75,18 @@ export function App() {
           value={numberValue.low}
           onChange={enterLowNumber}
           onBlur={enterLowNumberAfterBlur}
+          onFocus={() => {
+            setNumberValue((state) => ({ ...state, low: "" }));
+          }}
         ></Input>
         <Input
           type="number"
           value={numberValue.high}
           onChange={enterHighNumber}
           onBlur={enterHighNumberAfterBlur}
+          onFocus={() => {
+            setNumberValue((state) => ({ ...state, high: "" }));
+          }}
         ></Input>
       </div>
       <div className={styles.rangeWrapper}>
