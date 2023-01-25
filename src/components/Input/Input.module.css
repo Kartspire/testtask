@@ -1,0 +1,64 @@
+.number {
+  padding: 10px;
+  border: none;
+  text-align: center;
+  max-width: 80px;
+  font-size: 18px;
+}
+.range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  outline: none;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  background-color: transparent;
+  pointer-events: none;
+}
+.range::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 5px;
+}
+.range::-moz-range-track {
+  -moz-appearance: none;
+  height: 5px;
+}
+.range::-ms-track {
+  appearance: none;
+  height: 5px;
+}
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  background-color: #30352e;
+  cursor: pointer;
+  margin-top: -9px;
+  pointer-events: auto;
+  border-radius: 50%;
+}
+.range::-moz-range-thumb {
+  -webkit-appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #30352e;
+  pointer-events: auto;
+}
+.range::-ms-thumb {
+  appearance: none;
+  height: 1.7em;
+  width: 1.7em;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #30352e;
+  pointer-events: auto;
+}
+.range:active::-webkit-slider-thumb {
+  background-color: #b4b198;
+  border: 3px solid #30352e;
+}
