@@ -1,4 +1,4 @@
-import { IRange } from "../models/IData";
+import { IRange } from "../models/IRange";
 
 export function sendRange(range: IRange) {
   fetch("https://jsonplaceholder.typicode.com/posts", {
